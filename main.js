@@ -9,8 +9,8 @@ async function github(username) {
 
 function display(projects) {
     const sorted = projects.sort((projectA, projectB) => {
-    const a = projectA.stargazers_count;
-    const b = projectB.stargazers_count; 
+        const a = projectA.stargazers_count;
+        const b = projectB.stargazers_count; 
         if(a > b) { 
             return -1; 
         } else if(a < b) { 
@@ -18,7 +18,7 @@ function display(projects) {
         } else {
             return 0;
         }     
-        })
+    })
     for (let project of sorted) {
         console.log(`${project.stargazers_count} ${project.name} : ${project.description}`)
     }
