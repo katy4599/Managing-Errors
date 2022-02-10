@@ -10,6 +10,8 @@ async function github(username) {
 function display(projects) {
     if (projects == undefined) { 
         throw new Error('Projects are undefined.')       
+    } if (projects.length === 0) {
+        throw new Error('No projects to display.')
     }
 
         const sorted = projects.sort((projectA, projectB) => {
@@ -35,7 +37,7 @@ async function main() {
         try {
             const resp = await input.text('What is your username?');
             const repos = await github(resp);
-            display(repos);
+            display([]);
             break;
         } catch (error) {
             console.log(error.message);
