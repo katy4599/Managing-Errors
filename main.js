@@ -25,13 +25,20 @@ function display(projects) {
 }
 
 async function main() {
-    try {
-        const resp = await input.text('What is your username?');
-        const repos = await github(resp);
-        display(repos);
-    } catch (error) {
-       console.log(error.message);
-    }
+    let err;
+
+    do {
+        try {
+            const resp = await input.text('What is your username?');
+            const repos = await github(resp);
+            display(repos);
+            break;
+        } catch (error) {
+            console.log(error.message);
+            err = error
+        }
+    } 
+    while (err != undefined)
 }
 
 main();
