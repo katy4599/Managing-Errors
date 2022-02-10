@@ -8,17 +8,21 @@ async function github(username) {
 }
 
 function display(projects) {
-    const sorted = projects.sort((projectA, projectB) => {
-        const a = projectA.stargazers_count;
-        const b = projectB.stargazers_count; 
-        if(a > b) { 
-            return -1; 
-        } else if(a < b) { 
-            return 1; 
-        } else {
-            return 0;
-        }     
-    })
+    if (projects != undefined) { 
+        throw new Error('Projects are undefined.')       
+    }
+
+        const sorted = projects.sort((projectA, projectB) => {
+            const a = projectA.stargazers_count;
+            const b = projectB.stargazers_count; 
+            if(a > b) { 
+                return -1; 
+            } else if(a < b) { 
+                return 1; 
+            } else {
+                return 0;
+            }     
+        })
     for (let project of sorted) {
         console.log(`${project.stargazers_count} ${project.name} : ${project.description}`)
     }
