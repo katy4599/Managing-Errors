@@ -14,17 +14,17 @@ function display(projects) {
         throw new Error('No projects to display.')
     }
 
-        const sorted = projects.sort((projectA, projectB) => {
-            const a = projectA.stargazers_count;
-            const b = projectB.stargazers_count; 
-            if(a > b) { 
-                return -1; 
-            } else if(a < b) { 
-                return 1; 
-            } else {
-                return 0;
-            }     
-        })
+    const sorted = projects.sort((projectA, projectB) => {
+        const a = projectA.stargazers_count;
+        const b = projectB.stargazers_count; 
+        if(a > b) { 
+            return -1; 
+        } else if(a < b) { 
+            return 1; 
+        } else {
+            return 0;
+        }     
+    })
     for (let project of sorted) {
         console.log(`${project.stargazers_count} ${project.name} : ${project.description}`)
     }
