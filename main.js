@@ -8,7 +8,7 @@ async function github(username) {
 }
 
 function display(projects) {
-    if (projects != undefined) { 
+    if (projects == undefined) { 
         throw new Error('Projects are undefined.')       
     }
 
